@@ -1,0 +1,9 @@
+{
+  "name": "teste-codx",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page de venda de internet com servidor Node.js puro",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
