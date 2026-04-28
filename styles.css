@@ -1,0 +1,287 @@
+:root {
+  --bg: #060b1f;
+  --bg-soft: #0d1536;
+  --text: #f4f7ff;
+  --muted: #b7c0df;
+  --primary: #2a8cff;
+  --primary-dark: #1668c9;
+  --card: #111a3f;
+  --border: #29315f;
+  --success: #15c57a;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  width: min(1120px, 92%);
+  margin: 0 auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  background: rgba(6, 11, 31, 0.85);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.logo {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.logo span { color: var(--primary); }
+
+nav { display: flex; gap: 18px; }
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover { background: var(--primary-dark); }
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.hero {
+  padding: 84px 0 52px;
+  background: radial-gradient(circle at top right, #2046af 0%, #060b1f 48%);
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1.25fr 0.85fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(42, 140, 255, 0.16);
+  color: #bcd8ff;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.35rem);
+  margin: 12px 0;
+  line-height: 1.1;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 1.07rem;
+  line-height: 1.6;
+}
+
+.hero-actions { display: flex; gap: 12px; margin-top: 20px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.highlight .price {
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.highlight .price span {
+  display: block;
+  color: #7eb5ff;
+}
+
+.section { padding: 70px 0; }
+.section h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); margin-top: 0; }
+.muted { background: var(--bg-soft); }
+
+.plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.plan { position: relative; }
+.plan .speed {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 6px 0;
+}
+.plan .value {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+.plan .value span {
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.featured {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(42, 140, 255, 0.2);
+}
+
+.tag {
+  position: absolute;
+  right: 18px;
+  top: -10px;
+  margin: 0;
+  background: var(--success);
+  color: #04321d;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.benefits article {
+  background: #0f1b47;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 20px;
+}
+
+.coverage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.form-inline {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+input {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0a1230;
+  color: var(--text);
+  padding: 12px 14px;
+  outline: none;
+}
+
+input:focus { border-color: var(--primary); }
+
+.result {
+  grid-column: span 2;
+  min-height: 22px;
+  margin: 2px 0 0;
+  color: #8fc2ff;
+  font-weight: 600;
+}
+
+.contact {
+  max-width: 700px;
+  text-align: center;
+}
+
+.lead-form {
+  display: grid;
+  gap: 10px;
+  text-align: left;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #d7dfff;
+}
+
+.full { width: 100%; }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 0;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.footer-content a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@media (max-width: 930px) {
+  nav { display: none; }
+  .hero-content,
+  .plans,
+  .benefits,
+  .coverage {
+    grid-template-columns: 1fr;
+  }
+
+  .hero { padding-top: 52px; }
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

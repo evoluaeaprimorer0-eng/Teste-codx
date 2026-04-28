@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TurboNet | Internet Fibra para sua casa</title>
+  <meta name="description" content="Planos de internet fibra com instalação rápida, Wi‑Fi grátis e suporte 24h." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="logo" href="#">Turbo<span>Net</span></a>
+      <nav>
+        <a href="#planos">Planos</a>
+        <a href="#vantagens">Vantagens</a>
+        <a href="#cobertura">Cobertura</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a class="btn btn-primary" href="#contato">Assinar agora</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <div>
+          <p class="badge">⚡ Instalação em até 24h</p>
+          <h1>Internet fibra ultrarrápida para sua casa e empresa</h1>
+          <p class="subtitle">Navegue, jogue e faça streaming sem travar com planos de até <strong>1 Giga</strong>.</p>
+          <div class="hero-actions">
+            <a href="#planos" class="btn btn-primary">Ver planos</a>
+            <a href="#cobertura" class="btn btn-ghost">Consultar cobertura</a>
+          </div>
+        </div>
+        <div class="card highlight">
+          <h2>Oferta da semana</h2>
+          <p class="price">600 Mega <span>R$ 99,90/mês</span></p>
+          <ul>
+            <li>Wi‑Fi 6 incluso</li>
+            <li>Instalação grátis</li>
+            <li>Suporte 24/7</li>
+          </ul>
+          <a class="btn btn-primary full" href="#contato">Quero este plano</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="planos" class="section">
+      <div class="container">
+        <h2>Escolha o plano ideal</h2>
+        <div class="plans">
+          <article class="card plan">
+            <h3>Essencial</h3>
+            <p class="speed">300 Mega</p>
+            <p class="value">R$ 79,90 <span>/mês</span></p>
+            <ul>
+              <li>Ideal para até 6 dispositivos</li>
+              <li>Streaming HD e home office</li>
+              <li>Suporte técnico especializado</li>
+            </ul>
+            <button class="btn btn-ghost full" data-plan="Essencial 300 Mega">Assinar</button>
+          </article>
+
+          <article class="card plan featured">
+            <p class="tag">Mais vendido</p>
+            <h3>Família</h3>
+            <p class="speed">600 Mega</p>
+            <p class="value">R$ 99,90 <span>/mês</span></p>
+            <ul>
+              <li>Ideal para streaming 4K</li>
+              <li>Download e upload rápidos</li>
+              <li>Wi‑Fi 6 incluso</li>
+            </ul>
+            <button class="btn btn-primary full" data-plan="Família 600 Mega">Assinar</button>
+          </article>
+
+          <article class="card plan">
+            <h3>Pro</h3>
+            <p class="speed">1 Giga</p>
+            <p class="value">R$ 149,90 <span>/mês</span></p>
+            <ul>
+              <li>Perfeito para gamers e criadores</li>
+              <li>Menor latência para jogos online</li>
+              <li>Prioridade no atendimento</li>
+            </ul>
+            <button class="btn btn-ghost full" data-plan="Pro 1 Giga">Assinar</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="vantagens" class="section muted">
+      <div class="container">
+        <h2>Por que contratar a TurboNet?</h2>
+        <div class="benefits">
+          <article>
+            <h3>Fibra 100%</h3>
+            <p>Conexão estável e veloz, mesmo nos horários de pico.</p>
+          </article>
+          <article>
+            <h3>Atendimento humano</h3>
+            <p>Equipe especializada disponível por telefone e WhatsApp.</p>
+          </article>
+          <article>
+            <h3>Sem fidelidade</h3>
+            <p>Você fica porque gosta, não porque é obrigado.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cobertura" class="section">
+      <div class="container coverage">
+        <div>
+          <h2>Consulte a cobertura no seu bairro</h2>
+          <p>Informe seu CEP e veja se já atendemos sua região.</p>
+        </div>
+        <form id="coverage-form" class="card form-inline">
+          <label for="cep" class="sr-only">CEP</label>
+          <input id="cep" name="cep" type="text" maxlength="9" placeholder="Digite seu CEP" required />
+          <button type="submit" class="btn btn-primary">Consultar</button>
+          <p id="coverage-result" class="result" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="contato" class="section muted">
+      <div class="container contact">
+        <h2>Fale com um consultor</h2>
+        <p>Preencha os dados e receba uma proposta em minutos.</p>
+        <form class="card lead-form">
+          <label for="name">Nome</label>
+          <input id="name" type="text" placeholder="Seu nome" required />
+
+          <label for="phone">WhatsApp</label>
+          <input id="phone" type="tel" placeholder="(11) 99999-9999" required />
+
+          <label for="interest">Plano de interesse</label>
+          <input id="interest" type="text" placeholder="Ex: 600 Mega" />
+
+          <button class="btn btn-primary" type="submit">Receber proposta</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <p>© 2026 TurboNet Telecom. Todos os direitos reservados.</p>
+      <a href="#">Política de Privacidade</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
