@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TurboNet | Internet Fibra para sua casa</title>
-  <meta name="description" content="Planos de internet fibra com instalação rápida, Wi‑Fi grátis e suporte 24h." />
+  <title>Loja NovaEra | Ofertas que cabem no seu bolso</title>
+  <meta name="description" content="Site de vendas com catálogo de produtos, filtros por categoria e carrinho interativo." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="topbar">
     <div class="container nav">
-      <a class="logo" href="#">Turbo<span>Net</span></a>
+      <a class="logo" href="#">Nova<span>Era</span></a>
       <nav>
-        <a href="#planos">Planos</a>
+        <a href="#produtos">Produtos</a>
         <a href="#vantagens">Vantagens</a>
-        <a href="#cobertura">Cobertura</a>
+        <a href="#depoimentos">Depoimentos</a>
         <a href="#contato">Contato</a>
       </nav>
-      <a class="btn btn-primary" href="#contato">Assinar agora</a>
+      <button class="btn btn-primary" id="open-cart" type="button">Carrinho (<span id="cart-count">0</span>)</button>
     </div>
   </header>
 
@@ -28,129 +28,151 @@
     <section class="hero">
       <div class="container hero-content">
         <div>
-          <p class="badge">⚡ Instalação em até 24h</p>
-          <h1>Internet fibra ultrarrápida para sua casa e empresa</h1>
-          <p class="subtitle">Navegue, jogue e faça streaming sem travar com planos de até <strong>1 Giga</strong>.</p>
+          <p class="badge">🔥 Promoção da semana com frete grátis</p>
+          <h1>Compre tecnologia, casa e estilo em um só lugar</h1>
+          <p class="subtitle">Produtos selecionados com pagamento seguro, entrega rápida e suporte em horário comercial.</p>
           <div class="hero-actions">
-            <a href="#planos" class="btn btn-primary">Ver planos</a>
-            <a href="#cobertura" class="btn btn-ghost">Consultar cobertura</a>
+            <a href="#produtos" class="btn btn-primary">Ver catálogo</a>
+            <a href="#contato" class="btn btn-ghost">Falar com especialista</a>
           </div>
-        </div>
-        <div class="card highlight">
-          <h2>Oferta da semana</h2>
-          <p class="price">600 Mega <span>R$ 99,90/mês</span></p>
-          <ul>
-            <li>Wi‑Fi 6 incluso</li>
-            <li>Instalação grátis</li>
-            <li>Suporte 24/7</li>
+          <ul class="hero-highlights">
+            <li>✅ Parcelamento em até 12x sem juros</li>
+            <li>✅ Troca fácil em até 7 dias</li>
+            <li>✅ Cupom de 10% na primeira compra</li>
           </ul>
-          <a class="btn btn-primary full" href="#contato">Quero este plano</a>
         </div>
+        <aside class="card spotlight">
+          <p class="spotlight-tag">Oferta relâmpago</p>
+          <h2>Smartwatch Fit X</h2>
+          <p class="spotlight-price">R$ 299,90 <span>ou 12x de R$ 24,99</span></p>
+          <p>Monitoramento cardíaco, resistência à água e bateria de longa duração.</p>
+          <button class="btn btn-primary full add-cart" data-id="fitx" data-name="Smartwatch Fit X" data-price="299.9">Adicionar ao carrinho</button>
+        </aside>
       </div>
     </section>
 
-    <section id="planos" class="section">
+    <section id="produtos" class="section">
       <div class="container">
-        <h2>Escolha o plano ideal</h2>
-        <div class="plans">
-          <article class="card plan">
-            <h3>Essencial</h3>
-            <p class="speed">300 Mega</p>
-            <p class="value">R$ 79,90 <span>/mês</span></p>
-            <ul>
-              <li>Ideal para até 6 dispositivos</li>
-              <li>Streaming HD e home office</li>
-              <li>Suporte técnico especializado</li>
-            </ul>
-            <button class="btn btn-ghost full" data-plan="Essencial 300 Mega">Assinar</button>
+        <div class="section-header">
+          <h2>Produtos em destaque</h2>
+          <div class="filters" role="group" aria-label="Filtrar produtos">
+            <button class="chip active" data-filter="all">Todos</button>
+            <button class="chip" data-filter="tecnologia">Tecnologia</button>
+            <button class="chip" data-filter="casa">Casa</button>
+            <button class="chip" data-filter="moda">Moda</button>
+          </div>
+        </div>
+
+        <div class="products" id="product-grid">
+          <article class="card product" data-category="tecnologia">
+            <h3>Fone Bluetooth AirSound</h3>
+            <p class="product-desc">Cancelamento de ruído e até 30h de bateria.</p>
+            <p class="value">R$ 199,90</p>
+            <button class="btn btn-ghost full add-cart" data-id="airsound" data-name="Fone Bluetooth AirSound" data-price="199.9">Comprar</button>
           </article>
 
-          <article class="card plan featured">
-            <p class="tag">Mais vendido</p>
-            <h3>Família</h3>
-            <p class="speed">600 Mega</p>
-            <p class="value">R$ 99,90 <span>/mês</span></p>
-            <ul>
-              <li>Ideal para streaming 4K</li>
-              <li>Download e upload rápidos</li>
-              <li>Wi‑Fi 6 incluso</li>
-            </ul>
-            <button class="btn btn-primary full" data-plan="Família 600 Mega">Assinar</button>
+          <article class="card product" data-category="casa">
+            <h3>Cafeteira Prime</h3>
+            <p class="product-desc">Preparo rápido para até 15 xícaras.</p>
+            <p class="value">R$ 249,90</p>
+            <button class="btn btn-ghost full add-cart" data-id="cafeteira" data-name="Cafeteira Prime" data-price="249.9">Comprar</button>
           </article>
 
-          <article class="card plan">
-            <h3>Pro</h3>
-            <p class="speed">1 Giga</p>
-            <p class="value">R$ 149,90 <span>/mês</span></p>
-            <ul>
-              <li>Perfeito para gamers e criadores</li>
-              <li>Menor latência para jogos online</li>
-              <li>Prioridade no atendimento</li>
-            </ul>
-            <button class="btn btn-ghost full" data-plan="Pro 1 Giga">Assinar</button>
+          <article class="card product" data-category="moda">
+            <h3>Tênis Urban Move</h3>
+            <p class="product-desc">Conforto extra para rotina e treinos leves.</p>
+            <p class="value">R$ 179,90</p>
+            <button class="btn btn-ghost full add-cart" data-id="tenis" data-name="Tênis Urban Move" data-price="179.9">Comprar</button>
+          </article>
+
+          <article class="card product" data-category="tecnologia">
+            <h3>Caixa de Som Boom+</h3>
+            <p class="product-desc">Som potente e resistente à água.</p>
+            <p class="value">R$ 159,90</p>
+            <button class="btn btn-ghost full add-cart" data-id="boom" data-name="Caixa de Som Boom+" data-price="159.9">Comprar</button>
+          </article>
+
+          <article class="card product" data-category="casa">
+            <h3>Air Fryer Max 5L</h3>
+            <p class="product-desc">Receitas mais saudáveis em poucos minutos.</p>
+            <p class="value">R$ 389,90</p>
+            <button class="btn btn-ghost full add-cart" data-id="airfryer" data-name="Air Fryer Max 5L" data-price="389.9">Comprar</button>
+          </article>
+
+          <article class="card product" data-category="moda">
+            <h3>Mochila Travel Pro</h3>
+            <p class="product-desc">Compartimento para notebook e USB externo.</p>
+            <p class="value">R$ 139,90</p>
+            <button class="btn btn-ghost full add-cart" data-id="mochila" data-name="Mochila Travel Pro" data-price="139.9">Comprar</button>
           </article>
         </div>
       </div>
     </section>
 
     <section id="vantagens" class="section muted">
-      <div class="container">
-        <h2>Por que contratar a TurboNet?</h2>
-        <div class="benefits">
-          <article>
-            <h3>Fibra 100%</h3>
-            <p>Conexão estável e veloz, mesmo nos horários de pico.</p>
-          </article>
-          <article>
-            <h3>Atendimento humano</h3>
-            <p>Equipe especializada disponível por telefone e WhatsApp.</p>
-          </article>
-          <article>
-            <h3>Sem fidelidade</h3>
-            <p>Você fica porque gosta, não porque é obrigado.</p>
-          </article>
-        </div>
+      <div class="container benefits">
+        <article>
+          <h3>Entrega para todo Brasil</h3>
+          <p>Parcerias logísticas para entregar rápido com rastreamento em tempo real.</p>
+        </article>
+        <article>
+          <h3>Pagamento seguro</h3>
+          <p>Ambiente protegido com opções de cartão, PIX e boleto.</p>
+        </article>
+        <article>
+          <h3>Atendimento humanizado</h3>
+          <p>Equipe pronta para ajudar no pré e pós-venda.</p>
+        </article>
       </div>
     </section>
 
-    <section id="cobertura" class="section">
-      <div class="container coverage">
-        <div>
-          <h2>Consulte a cobertura no seu bairro</h2>
-          <p>Informe seu CEP e veja se já atendemos sua região.</p>
+    <section id="depoimentos" class="section">
+      <div class="container testimonials">
+        <h2>Quem compra recomenda</h2>
+        <div class="quotes">
+          <blockquote class="card">“Chegou antes do prazo e a qualidade é excelente.” <cite>— Mariana, SP</cite></blockquote>
+          <blockquote class="card">“Atendimento muito bom e troca super simples.” <cite>— Lucas, MG</cite></blockquote>
+          <blockquote class="card">“Comprei no sábado e recebi na segunda. Recomendo!” <cite>— Renata, PR</cite></blockquote>
         </div>
-        <form id="coverage-form" class="card form-inline">
-          <label for="cep" class="sr-only">CEP</label>
-          <input id="cep" name="cep" type="text" maxlength="9" placeholder="Digite seu CEP" required />
-          <button type="submit" class="btn btn-primary">Consultar</button>
-          <p id="coverage-result" class="result" aria-live="polite"></p>
-        </form>
       </div>
     </section>
 
     <section id="contato" class="section muted">
       <div class="container contact">
-        <h2>Fale com um consultor</h2>
-        <p>Preencha os dados e receba uma proposta em minutos.</p>
-        <form class="card lead-form">
+        <h2>Receba ofertas exclusivas</h2>
+        <p>Cadastre seu e-mail e WhatsApp para receber cupons e novidades.</p>
+        <form id="lead-form" class="card lead-form">
           <label for="name">Nome</label>
           <input id="name" type="text" placeholder="Seu nome" required />
+
+          <label for="email">E-mail</label>
+          <input id="email" type="email" placeholder="voce@email.com" required />
 
           <label for="phone">WhatsApp</label>
           <input id="phone" type="tel" placeholder="(11) 99999-9999" required />
 
-          <label for="interest">Plano de interesse</label>
-          <input id="interest" type="text" placeholder="Ex: 600 Mega" />
-
-          <button class="btn btn-primary" type="submit">Receber proposta</button>
+          <button class="btn btn-primary" type="submit">Quero receber ofertas</button>
+          <p id="lead-result" class="result" aria-live="polite"></p>
         </form>
       </div>
     </section>
   </main>
 
+  <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+    <div class="cart-header">
+      <h2>Seu carrinho</h2>
+      <button id="close-cart" class="btn btn-ghost" type="button">Fechar</button>
+    </div>
+    <ul id="cart-items"></ul>
+    <div class="cart-footer">
+      <p>Total: <strong id="cart-total">R$ 0,00</strong></p>
+      <button id="checkout" class="btn btn-primary full" type="button">Finalizar compra</button>
+    </div>
+  </aside>
+
   <footer>
     <div class="container footer-content">
-      <p>© 2026 TurboNet Telecom. Todos os direitos reservados.</p>
+      <p>© 2026 Loja NovaEra. Todos os direitos reservados.</p>
       <a href="#">Política de Privacidade</a>
     </div>
   </footer>
