@@ -1,11 +1,11 @@
 :root {
-  --bg: #f4fbf6;
+  --bg: #fdf5f5;
   --text: #18223a;
   --muted: #5b6885;
-  --primary: #1faa59;
-  --primary-dark: #178347;
+  --primary: #d62828;
+  --primary-dark: #a61b1b;
   --card: #ffffff;
-  --border: #cfe8d8;
+  --border: #f0c9c9;
   --ok: #1f9d63;
 }
 
@@ -86,7 +86,7 @@ nav a {
 
 .hero {
   padding: 76px 0 56px;
-  background: linear-gradient(165deg, #eaf9ef 0%, #f7fdf9 100%);
+  background: linear-gradient(165deg, #fdeaea 0%, #fff7f7 100%);
 }
 
 .hero-content {
@@ -98,8 +98,8 @@ nav a {
 
 .badge {
   display: inline-block;
-  background: #def5e7;
-  color: #1f7a45;
+  background: #ffdede;
+  color: #a61b1b;
   font-weight: 700;
   border-radius: 999px;
   padding: 8px 14px;
@@ -185,9 +185,9 @@ h1 {
 }
 
 .chip.active {
-  background: #e5f8eb;
-  color: #176b3e;
-  border-color: #b9e8c9;
+  background: #ffe7e7;
+  color: #8f1616;
+  border-color: #f5bebe;
 }
 
 .products {
@@ -209,7 +209,7 @@ h1 {
   margin-bottom: 14px;
 }
 
-.muted { background: #eefbf2; }
+.muted { background: #fff0f0; }
 
 .benefits {
   display: grid;
@@ -260,7 +260,7 @@ label {
 input {
   width: 100%;
   border-radius: 10px;
-  border: 1px solid #c5decf;
+  border: 1px solid #e7c6c6;
   padding: 12px 14px;
   outline: none;
 }
@@ -270,7 +270,7 @@ input:focus { border-color: var(--primary); }
 .result {
   margin: 0;
   min-height: 22px;
-  color: #1c7a44;
+  color: #9b1c1c;
   font-weight: 600;
 }
 
