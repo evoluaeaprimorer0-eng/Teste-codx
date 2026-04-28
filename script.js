@@ -1,39 +1,101 @@
-const coverageForm = document.querySelector('#coverage-form');
-const coverageResult = document.querySelector('#coverage-result');
-const planButtons = document.querySelectorAll('[data-plan]');
-const interestField = document.querySelector('#interest');
-const leadForm = document.querySelector('.lead-form');
+const cart = [];
 
-planButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    const selectedPlan = button.getAttribute('data-plan');
-
-    if (interestField && selectedPlan) {
-      interestField.value = selectedPlan;
-      interestField.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      interestField.focus();
-    }
-  });
+const currencyFormat = new Intl.NumberFormat('pt-BR', {
+  style: 'currency',
+  currency: 'BRL'
 });
 
-coverageForm?.addEventListener('submit', (event) => {
-  event.preventDefault();
+const cartDrawer = document.querySelector('#cart-drawer');
+const cartItems = document.querySelector('#cart-items');
+const cartTotal = document.querySelector('#cart-total');
+const cartCount = document.querySelector('#cart-count');
+const openCartButton = document.querySelector('#open-cart');
+const closeCartButton = document.querySelector('#close-cart');
+const addCartButtons = document.querySelectorAll('.add-cart');
+const checkoutButton = document.querySelector('#checkout');
+const filterButtons = document.querySelectorAll('[data-filter]');
+const productCards = document.querySelectorAll('.product');
+const leadForm = document.querySelector('#lead-form');
+const leadResult = document.querySelector('#lead-result');
 
-  const cepInput = document.querySelector('#cep');
-  const rawCep = cepInput?.value ?? '';
-  const cep = rawCep.replace(/\D/g, '');
+const updateCartUI = () => {
+  cartItems.innerHTML = '';
 
-  if (cep.length !== 8) {
-    coverageResult.textContent = 'CEP inválido. Digite um CEP com 8 números.';
+  if (cart.length === 0) {
+    const emptyItem = document.createElement('li');
+    emptyItem.textContent = 'Seu carrinho está vazio.';
+    cartItems.appendChild(emptyItem);
+    cartTotal.textContent = currencyFormat.format(0);
+    cartCount.textContent = '0';
     return;
   }
 
-  const firstDigit = Number(cep[0]);
-  if (firstDigit <= 6) {
-    coverageResult.textContent = 'Boa notícia! Temos cobertura no seu endereço. Um consultor entrará em contato.';
-  } else {
-    coverageResult.textContent = 'Ainda não temos cobertura nessa região, mas já estamos expandindo.';
+  let total = 0;
+  cart.forEach((item) => {
+    total += item.price;
+
+    const row = document.createElement('li');
+    row.innerHTML = `
+      <span>${item.name}</span>
+      <strong>${currencyFormat.format(item.price)}</strong>
+    `;
+
+    cartItems.appendChild(row);
+  });
+
+  cartCount.textContent = String(cart.length);
+  cartTotal.textContent = currencyFormat.format(total);
+};
+
+const openCart = () => {
+  cartDrawer.classList.add('open');
+  cartDrawer.setAttribute('aria-hidden', 'false');
+};
+
+const closeCart = () => {
+  cartDrawer.classList.remove('open');
+  cartDrawer.setAttribute('aria-hidden', 'true');
+};
+
+addCartButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const name = button.getAttribute('data-name') || 'Produto';
+    const price = Number(button.getAttribute('data-price')) || 0;
+
+    cart.push({ name, price });
+    updateCartUI();
+    openCart();
+  });
+});
+
+filterButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const filter = button.getAttribute('data-filter');
+
+    filterButtons.forEach((chip) => chip.classList.remove('active'));
+    button.classList.add('active');
+
+    productCards.forEach((card) => {
+      const category = card.getAttribute('data-category');
+      const shouldShow = filter === 'all' || category === filter;
+      card.style.display = shouldShow ? 'block' : 'none';
+    });
+  });
+});
+
+openCartButton?.addEventListener('click', openCart);
+closeCartButton?.addEventListener('click', closeCart);
+
+checkoutButton?.addEventListener('click', () => {
+  if (cart.length === 0) {
+    alert('Adicione pelo menos um item ao carrinho para finalizar a compra.');
+    return;
   }
+
+  alert(`Pedido confirmado! Total: ${cartTotal.textContent}.`);
+  cart.length = 0;
+  updateCartUI();
+  closeCart();
 });
 
 leadForm?.addEventListener('submit', (event) => {
@@ -42,9 +104,12 @@ leadForm?.addEventListener('submit', (event) => {
   const name = document.querySelector('#name')?.value?.trim();
 
   if (!name) {
+    leadResult.textContent = 'Por favor, informe seu nome para continuar.';
     return;
   }
 
-  alert(`Obrigado, ${name}! Sua solicitação foi recebida. Em breve entraremos em contato.`);
+  leadResult.textContent = `Obrigado, ${name}! Você receberá nossas ofertas ainda hoje.`;
   leadForm.reset();
 });
+
+updateCartUI();
